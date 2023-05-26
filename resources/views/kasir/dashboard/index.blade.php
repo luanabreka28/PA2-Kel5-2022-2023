@@ -37,8 +37,9 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th> <span>Pesanan</span></th>
+                                            <th> <span>Nomor Pesanan</span></th>
                                             <th> <span>Nama Pemesan</span></th>
+                                            <th> <span>Pesanan</span></th>
                                             <th> <span>Tanggal </span></th>
                                             <th> <span>Total </span></th>
                                             <th> <span>Status </span></th>
@@ -49,12 +50,15 @@
                                         @foreach ($pembelians as $pembelian)
                                             <tr>
                                                 <td>
-                                                    @foreach ($pembelian->pembelianItems as $item)
-                                                        <p>{{ $item->produk->name }}</p>
-                                                    @endforeach
+                                                    {{ $pembelian->order_number }}
                                                 </td>
                                                 <td class="img-content-box">
                                                     <h6>{{ $pembelian->username }}</h6>
+                                                </td>
+                                                <td>
+                                                    @foreach ($pembelian->pembelianItems as $item)
+                                                        <p>{{ $item->produk->name }}</p>
+                                                    @endforeach
                                                 </td>
                                                 <td>
                                                     <h6>{{ \Carbon\Carbon::parse($pembelian->tanggal_pembelian)->format('Y-m-d') }}

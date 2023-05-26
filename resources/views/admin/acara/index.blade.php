@@ -67,9 +67,7 @@
                                                     </td>
                                                     <td>{{ $item->jenis }}</td>
                                                     <td>{{ $item->harga }}</td>
-                                                    <td>
-                                                        {{ $item->deskripsi }}
-                                                    </td>
+                                                    <td>{{ $item->deskripsi }}</td>
                                                     <td>
                                                         <div class="btn-group">
                                                             <a href="{{ route('admin.paketacara.edit', $item->id) }}"

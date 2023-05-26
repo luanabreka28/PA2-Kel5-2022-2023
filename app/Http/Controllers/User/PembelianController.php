@@ -50,6 +50,8 @@ class PembelianController extends Controller
         $pembelian->no_telpon = $request->no_telpon;
         $pembelian->bukti_pembayaran = $imageName;
         $pembelian->status = 'Pending';
+        $pembelian->order_number = $request->order_number;
+        // dd($request->all());
         $pembelian->save();
 
         // Mengambil data keranjang berdasarkan user_id

@@ -110,8 +110,4 @@ Route::middleware(['auth'])->group(function () {
         return view('admin.pemasukkan.index');
     });
 });
-// Route::resource('pesan', PesanController::class);
 
-// Route::get('login', function () {
-//     return view('web.login');
-// });

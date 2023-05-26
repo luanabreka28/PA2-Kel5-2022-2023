@@ -8,19 +8,17 @@
                 <div class="row align-items-center">
                     <div class="col-xl-3">
                         <div class="header__logo">
-                            <a href="index.html"><img src="{{ asset('assets/img/logo/logo.png') }}" alt="logo"></a>
+                            <a href="index.html"><img src="{{ asset('assets/img/logo/logo.jpeg') }}" alt="logo"
+                                    width="250"></a>
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <div class="header__menu main-menu text-center">
                             <nav id="mobile-menu">
                                 <ul>
-                                    <li class=" has-homemenu">
+                                    <li class="has-homemenu">
                                         <a href="{{ url('/') }}">Home</a>
-
                                     </li>
-
-
                                     <li class="has-dropdown">
                                         <a href="#">Paket</a>
                                         <ul class="sub-menu">
@@ -33,7 +31,6 @@
 
                                     <li class=" has-homemenu">
                                         <a href="{{ url('galeri') }}">Galeri</a>
-
                                     </li>
                                     <li><a href="{{ url('about') }}">About Us</a></li>
                                     <li><a href="{{ url('user/testimoni') }}">Testimoni</a></li>
@@ -56,6 +53,10 @@
                                 ->where('user_id', Auth::user()->id)
                                 ->count();
                             ?>
+                            <div class="header__info-cart tpcolor__oasis ml-10 tp-notif-toggle">
+                                <a href="{{ route('status', Auth::user()->id) }}"><button><i
+                                            class="icon-heart"></i></button></a>
+                            </div>
                             <div class="header__info-cart tpcolor__oasis ml-10 tp-cart-toggle">
                                 <button><i><img src="{{ asset('assets/img/icon/cart-1.svg') }}" alt=""></i>
                                     <span>{{ $banyak }}</span>
@@ -118,8 +119,17 @@
                                     <div class="tpcart__img">
                                         <img src="{{ asset('images/produk/' . $key->gambar) }}" alt="">
                                         <div class="tpcart__del">
-                                            <a href="#"><i class="icon-x-circle"></i></a>
+                                            <form
+                                                                action="{{ route('pesan.show', $key->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn">
+                                                                    <i class="m-1" data-feather="x-circle"></i>
+                                                                </button>
+                                                            </form>
                                         </div>
+
                                     </div>
                                     <div class="tpcart__content">
                                         <span class="tpcart__content-title"><a

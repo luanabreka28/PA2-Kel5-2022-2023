@@ -1,4 +1,12 @@
 <footer>
+    <style>
+        footer {
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        }
+    </style>
     <div class="tpfooter__area tpfooter__border theme-bg-2">
        <div class="tpfooter___bottom pt-40 pb-40">
           <div class="container">

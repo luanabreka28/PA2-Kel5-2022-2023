@@ -34,6 +34,12 @@
                                     </div>
                                     <ul class="qty">
                                         <li>
+                                            No Pesanan
+                                            <span>
+                                                <p>{{ $pembelian->order_number }}</p>
+                                            </span>
+                                        </li>
+                                        <li>
                                             Nama Pemesanan
                                             <span>
                                                 <p>{{ $pembelian->username }}</p>

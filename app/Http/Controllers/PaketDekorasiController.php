@@ -11,7 +11,7 @@ class PaketDekorasiController extends Controller
 {
     public function index(Request $request)
     {
-        $paket_dekorasi = Produk::where('jenis', 'Paket Dekorasi')->paginate(5);
+        $paket_dekorasi = Produk::where('jenis', 'Paket Dekorasi')->get();
         return view('web.dekorasi', compact('paket_dekorasi'));
     }
 

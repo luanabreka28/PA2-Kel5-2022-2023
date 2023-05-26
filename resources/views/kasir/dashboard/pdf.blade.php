@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Nota Pesanan</title>
+	<title>Nota Pesanan Gaol Production</title>
 	<style type="text/css">
 		body {
 			font-family: Arial, sans-serif;
@@ -91,7 +91,7 @@
 <body>
 	<div class="header">
 		<div class="title">NOTA PESANAN</div>
-		<div class="number">Nomor Pesanan: {{ $pembelian->user_id }}</div>
+		<div class="number">Nomor Pesanan: {{ $pembelian->order_number }}</div>
 		<div class="date">Tanggal Pesanan: {{ \Carbon\Carbon::parse($pembelian->tanggal_pembelian)->format('Y-m-d') }}</div>
 	</div>
 

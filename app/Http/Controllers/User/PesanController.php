@@ -4,7 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Produk;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class PesanController extends Controller
 {
@@ -61,8 +64,12 @@ class PesanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produk $produk)
+    public function destroy(Produk $pesan)
     {
-        //
+       
+        $pesanan = Pesanan::where('product_id', $pesan->id)->where('user_id', Auth::user()->id)->first();
+        $pesanan->delete();
+        // Redirect ke halaman keranjang atau halaman lain yang diinginkan
+        return redirect()->back()->with('success', 'Item keranjang berhasil dihapus.');
     }
 }

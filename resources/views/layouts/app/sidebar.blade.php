@@ -1,15 +1,15 @@
 <div class="sidebar-wrapper">
     <div>
         <div class="logo-wrapper"><a href="index.html">
-                <img class="img-fluid for-light" src="{{ asset('assets/admin/assets/images/logo/small-logo.png') }}"
-                    alt="">
-                <img class="img-fluid for-dark" src="{{ asset('assets/admin/assets/images/logo/small-white-logo.png') }}"
-                    alt=""></a>
+                <img class="img-fluid for-light" src="{{ asset('assets/admin/assets/images/logo/loggo.jpeg') }}"
+                    alt=""  width="250" height="200">
+                <img class="img-fluid for-dark" src="{{ asset('assets/admin/assets/images/logo/loggo.jpeg') }}"
+                    alt=""  width="250" height="200"></a>
             <div class="back-btn"><i class="fa fa-angle-left"></i></div>
         </div>
         <div class="logo-icon-wrapper">
             <a href="index.html">
-                <img class="img-fluid" src="{{ asset('assets/admin/assets/images/logo-icon.png') }}" alt="">
+                <img class="img-fluid" src="{{ asset('assets/admin/assets/images/loggo.jpeg') }}" alt="" width="250" height="200">
             </a>
         </div>
         <nav class="sidebar-main">
@@ -21,7 +21,7 @@
                     <ul class="sidebar-links" id="simple-bar">
                         <li class="back-btn">
                             <a href="index.html">
-                                <img class="img-fluid" src="{{ asset('assets/admin/assets/images/logo-icon.png') }}"
+                                <img class="img-fluid" src="{{ asset('assets/admin/assets/images/loggo.jpeg') }}"
                                     alt="">
                             </a>
                             <div class="mobile-back text-end"><span>Back</span>

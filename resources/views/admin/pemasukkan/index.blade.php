@@ -55,15 +55,15 @@
                                                 <td>{{ $pembelian->created_at }}</td>
                                             </tr>
                                         @endforeach
-                                            @php
-                                                $total = 0;
-                                                foreach ($pembelians as $pembelian) {
-                                                    $total += $pembelian->total_harga;
-                                                }
-                                                $total = number_format($total,0,',','.');
-                                            @endphp
+                                        @php
+                                            $total = 0;
+                                            foreach ($pembelians as $pembelian) {
+                                                $total += $pembelian->total_harga;
+                                            }
+                                            $total = number_format($total, 0, ',', '.');
+                                        @endphp
 
-                                            <h4>Total Pemasukkan = Rp. {{ $total }}</h4>
+                                        <h4>Total Pemasukkan = Rp. {{ $total }}</h4>
                                     </tbody>
                                 </table>
 

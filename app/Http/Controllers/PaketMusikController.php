@@ -11,7 +11,7 @@ class PaketMusikController extends Controller
 {
     public function index(Request $request)
     {
-        $paket_musik = Produk::where('jenis', 'Paket Musik')->paginate(5);
+        $paket_musik = Produk::where('jenis', 'Paket Musik')->get();
         return view('web.musik', compact('paket_musik'));
     }
 

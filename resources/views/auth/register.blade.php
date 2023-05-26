@@ -1,4 +1,4 @@
-<x-auth-layout>
+<x-auth-layout title="Registrasi">
     <div class="container-fluid p-0">
         <div class="row m-0">
             <div class="col-xl-7 p-0"><img class="bg-img-cover bg-center"
@@ -7,13 +7,13 @@
                 <div class="login-card">
                     <form class="theme-form login-form" method="post" action="{{ url('/do_register') }}">
                         @csrf
-                        <h4>Create your account</h4>
-                        <h6>Enter your personal details to create account</h6>
+                        <h4>Registrasi</h4>
+                        <h6>Silahkan buat akun anda</h6>
                         <div class="form-group">
-                            <label for="name">Your Name</label>
+                            <label for="name">Nama Lengkap</label>
                             <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
                                 <input class="form-control @error('name')is-invalid @enderror" type="text"
-                                    name="name" id="name" placeholder="Your name" autofocus>
+                                    name="name" id="name" placeholder="Nama Lengkap" autofocus>
                                 @error('name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -22,10 +22,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
+                            <label for="email">Email </label>
                             <div class="input-group"><span class="input-group-text"><i class="icon-email"></i></span>
                                 <input class="form-control @error('email')is-invalid @enderror" type="email"
-                                    id="email" name="email" placeholder="Test@gmail.com">
+                                    id="email" name="email" placeholder="Masukkan email anda">
                                 @error('email')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -34,9 +34,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="nohp">Phone Number</label>
+                            <label for="nohp">Nomor Telepon</label>
                             <div class="input-group"><span class="input-group-text"><i class="icon-phone"></i></span>
-                                <input class="form-control @error('nohp')is-invalid @enderror" type="text"
+                                <input class="form-control @error('nohp')is-invalid @enderror" type="number"
                                     id="nohp" name="nohp" placeholder="628xxxxxxxxxx">
                                 @error('nohp')
                                     <div class="invalid-feedback">
@@ -60,11 +60,11 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="submit">Create Account</button>
+                            <button class="btn btn-primary btn-block" type="submit">Daftar</button>
                         </div>
 
 
-                        <p>Already have an account?<a class="ms-2" href="{{ url('/login') }}">Sign in</a></p>
+                        <p>Sudah punya akun?<a class="ms-2" href="{{ url('/login') }}">Login</a></p>
                     </form>
                 </div>
             </div>

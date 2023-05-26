@@ -79,10 +79,10 @@
                                                                 src="{{ asset('images/produk/' . $item->gambar) }}"
                                                                 alt=""></a>
                                                         <a class="tpproduct__thumb-img"
-                                                            href="shop-details-grid.html"><img
+                                                            href="{{ Route('pesan.show', $item->id) }}"><img
                                                                 src="{{ asset('images/produk/' . $item->gambar) }}"
                                                                 alt=""></a>
-                                                        
+
                                                     </div>
                                                     <div class="tpproduct__content">
                                                         <h4 class="tpproduct__title">
@@ -92,41 +92,11 @@
                                                             <span>Rp. {{ number_format($item->harga, 2, ',', '.') }}</span></span>
                                                         </div>
                                                     </div>
-                                                    <div class="tpproduct__hover-text">
-                                                        <div
-                                                            class="tpproduct__hover-btn d-flex justify-content-center mb-10">
-                                                            <a class="tp-btn-2" href="{{ Route('pesan.show',$item->id) }}">Pesan</a>
-                                                        </div>
-                                                        <div class="tpproduct__descrip">
-                                                            <p>{{ $item->deskripsi }}</p>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         @endforeach
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="basic-pagination text-center mt-35">
-                                <nav>
-                                    <ul>
-                                        <li>
-                                            <span class="current">1</span>
-                                        </li>
-                                        <li>
-                                            <a href="blog.html">2</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog.html">3</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog.html">
-                                                <i class="icon-chevrons-right"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
                             </div>
                         </div>
                     </div>

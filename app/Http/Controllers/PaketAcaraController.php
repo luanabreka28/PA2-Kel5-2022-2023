@@ -11,7 +11,7 @@ class PaketAcaraController extends Controller
 {
     public function index(Request $request)
     {
-        $paket_acara = Produk::where('jenis', 'Paket Acara')->paginate(5);
+        $paket_acara = Produk::where('jenis', 'Paket Acara')->get();
         return view('web.acara', compact('paket_acara'));
     }
 

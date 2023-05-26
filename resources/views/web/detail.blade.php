@@ -37,19 +37,19 @@
                                 {{-- {{dd($produk)}} --}}
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="checkout-form-list">
-                                            <label>Nama Lengkap <span class="required">*</span></label>
-                                            <input type="text" placeholder="Nama Lengkap" value=""
-                                                name="username">
-                                            @error('username')
-                                                <span class="alert-danger">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror
-                                        </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="checkout-form-list">
+                                            <div class="checkout-form-list">
+                                                <label>Nama Lengkap <span>*</span></label>
+                                                <input type="text" placeholder="Nama Lengkap" value=""
+                                                    name="username">
+                                                @error('username')
+                                                    <span class="alert-danger">
+                                                        {{ $message }}
+                                                    </span>
+                                                @enderror
+                                            </div>
                                             <label>Alamat/Lokasi <span class="required">*</span></label>
                                             <input class="form-control @error('Alamat/Lokasi') is-invalid @enderror"
                                                 type="text" placeholder="Alamat/Lokasi" name="alamat">
@@ -93,7 +93,10 @@
                                             @enderror
                                         </div>
                                     </div>
-
+                                    @foreach ($detail as $key => $value)
+                                        <input type="text" hidden name="order_number"
+                                            value="{{ $value->order_number }}">
+                                    @endforeach
                                 </div>
 
                             </div>
@@ -113,6 +116,8 @@
                                         <?php $subtotal = 0; ?>
                                         @foreach ($detail as $key => $value)
                                             <tr class="cart_item">
+                                                <p>No. Pesanan : {{ $value->order_number }}</p>
+
                                                 <td class="product-name">
                                                     {{ $value->name }} <strong class="product-quantity"> ×
                                                         {{ $value->total }}</strong>
@@ -122,8 +127,8 @@
                                                 </td>
                                                 <td class="product-total">
                                                     <?php
-                                                    $total = $value->harga * $value->total;
-                                                    $subtotal += $total;
+                                                        $total = $value->harga * $value->total;
+                                                        $subtotal += $total;
                                                     ?>
                                                     <span class="amount">Rp.{{ number_format($total, 2) }}</span>
                                                 </td>

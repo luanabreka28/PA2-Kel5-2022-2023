@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     public function index(Request $request)
     {
-        $paket_makanan = Produk::where('jenis', 'Paket Makanan')->paginate(5);
+        $paket_makanan = Produk::where('jenis', 'Paket Makanan')->get();
         return view('web.index', compact('paket_makanan'));
     }
 }

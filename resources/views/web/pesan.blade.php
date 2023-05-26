@@ -30,7 +30,7 @@
                         <div class="tpdetails__area mr-60 pb-30">
                             <div class="tpdetails__product mb-30">
                                 <div class="tpdetails__title-box">
-                                    <h3 class="tpdetails__title">{{ $detail_pesan->name }}</h3>
+                                    <h2 class="tpdetails__title">{{ $detail_pesan->name }}</h2>
                                     <ul class="tpdetails__brand">
                                         {{-- <li>
                                  No.Pesanan: <span>ORFARMVE005</span>
@@ -46,18 +46,6 @@
                                                         role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                                                         <img src="{{ asset('images/produk/' . $detail_pesan->gambar) }}"
                                                             alt="">
-                                                        <div class="tpproduct__info bage">
-                                                            <span class="tpproduct__info-hot bage__hot">HOT</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="tab-pane fade w-img" id="nav-contact" role="tabpanel"
-                                                        aria-labelledby="nav-contact-tab" tabindex="0">
-                                                        <img src="{{ asset('images/produk/' . $detail_pesan->gambar) }}"
-                                                            alt="">
-                                                        <div class="tpproduct__info bage">
-                                                            <span class="tpproduct__info-hot bage__hot">HOT</span>
-                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -66,7 +54,8 @@
                                         <div class="col-lg-6 mt-50">
                                             <div class="product__details">
                                                 <div class="product__details-price-box">
-                                                    <h5 class="product__details-price">Rp. {{ number_format($detail_pesan->harga, 2, ',', '.') }}
+                                                    <h5 class="product__details-price">Rp.
+                                                        {{ number_format($detail_pesan->harga, 2, ',', '.') }}
                                                     </h5>
                                                     <ul class="product__details-info-list">
                                                         <li>Nama : {{ $detail_pesan->name }}</li>
@@ -80,7 +69,7 @@
                                                         @csrf
                                                         <div
                                                             class="product__details-quantity d-flex align-items-center mb-15">
-                                                            <b>Qty:</b>
+                                                            <b>Jumlah:</b>
                                                             <div class="product__details-count mr-10">
                                                                 <span class="cart-minus"><i
                                                                         class="far fa-minus"></i></span>
@@ -91,10 +80,18 @@
                                                             </div>
                                                             <div class="product__details-btn">
                                                                 <button type="submit"
-                                                                    class="btn btn-success me-3">Pesan Sekarang</button>
+                                                                    class="btn btn-success me-3">Tambah
+                                                                    Keranjang</button>
                                                             </div>
+                                                            <a href="javascript:;" onclick="pesan()"
+                                                                class="link-button btn btn-success me-3">
+                                                                Pesan Sekarang</a>
                                                         </div>
                                                     </form>
+                                                    <div class="">
+
+
+                                                    </div>
                                                 </div>
 
                                             </div>
@@ -114,7 +111,7 @@
                                                 <i class="icon-package"></i>
                                             </div>
                                             <div class="tpsidebar__warning-text">
-                                                <p>Free shipping apply to all <br> orders over $90</p>
+                                                <p>Gratis Ongkir Kemana Saja <br> Di Anatarkan Pesanan</p>
                                             </div>
                                         </div>
                                     </li>
@@ -124,7 +121,7 @@
                                                 <i class="icon-shield"></i>
                                             </div>
                                             <div class="tpsidebar__warning-text">
-                                                <p>Guaranteed 100% Organic <br> from nature farms</p>
+                                                <p>Pesanan Dipastikan Aman <br> Selama Pengiriman</p>
                                             </div>
                                         </div>
                                     </li>
@@ -134,7 +131,7 @@
                                                 <i class="icon-package"></i>
                                             </div>
                                             <div class="tpsidebar__warning-text">
-                                                <p>60 days returns if you change <br> your mind</p>
+                                                <p>Silahkan Hubungi Pihak <br> Gaol Production Jika Ada Kesalahan</p>
                                             </div>
                                         </div>
                                     </li>
@@ -164,13 +161,31 @@
                     dataType: 'json',
                     success: function(response) {
                         if (response.status) {
-                            toastr.success('Success messages');
+                            toastr.success('Berhasil Ditambahkan di Keranjang');
                         } else {
                             toastr.error('errors messages');
                         }
                     }
                 });
             });
+
+            function pesan() {
+                var data = $('#form-pesan').serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('order.store') }}',
+                    data: data,
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status) {
+                            toastr.success('Berhasil Ditambahkan di Keranjang');
+                            window.location.href = "{{ route('pembayaran.show', Auth::user()->id) }}";
+                        } else {
+                            toastr.error('errors messages');
+                        }
+                    }
+                });
+            }
         </script>
     @endsection
 </x-web-layout>

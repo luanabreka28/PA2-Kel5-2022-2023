@@ -7,9 +7,9 @@
                    <div class="col-lg-4 col-md-6">
                        <div class="tpbanner__item mb-30">
                            <a href="shop-3.html">
-                               <div class="tpbanner__content" data-background="assets/img/banner/oke1.jpg">
-                                   <span class="tpbanner__sub-title mb-10">Top Music</span>
-                                   <h4 class="tpbanner__title mb-30">Kualitas Suara <br> Yang Terbaik dan Bagus</h4>
+                               <div class="tpbanner__content" data-background="assets/img/banner/dek3.png">
+                                   <span class="tpbanner__sub-title mb-10">Top Dekor</span>
+                                   <h4 class="tpbanner__title mb-30">Kualitas Warna <br> Yang Terbaik dan Bagus</h4>
                                </div>
                            </a>
                        </div>
@@ -17,9 +17,9 @@
                    <div class="col-lg-4 col-md-6">
                        <div class="tpbanner__item mb-30">
                            <a href="shop-3.html">
-                               <div class="tpbanner__content" data-background="assets/img/banner/oke2.jpg">
-                                   <span class="tpbanner__sub-title tpbanner__white mb-10">Kualiats Lighting</span>
-                                   <h4 class="tpbanner__title mb-30">Lampu Sorot <br> Yang Mewah</h4>
+                               <div class="tpbanner__content" data-background="assets/img/banner/dek2.png">
+                                   <span class="tpbanner__sub-title tpbanner__white mb-10">Kualiats Dekorasi</span>
+                                   <h4 class="tpbanner__title mb-30">Hasil Dekorasi <br> Yang Mewah</h4>
                                </div>
                            </a>
                        </div>
@@ -27,9 +27,9 @@
                    <div class="col-lg-4 col-md-6">
                        <div class="tpbanner__item mb-30">
                            <a href="shop-3.html">
-                               <div class="tpbanner__content" data-background="assets/img/banner/oke3.jpg">
+                               <div class="tpbanner__content" data-background="assets/img/banner/dek1.png">
                                    <span class="tpbanner__sub-title mb-10">Top Seller</span>
-                                   <h4 class="tpbanner__title mb-30">Suara Mic <br> Yang Jernih</h4>
+                                   <h4 class="tpbanner__title mb-30">Memiliki Banyak <br> Pilihan Dekorasi</h4>
                                </div>
                            </a>
                        </div>
@@ -79,10 +79,10 @@
                                                                src="{{ asset('images/produk/' . $item->gambar) }}"
                                                                alt=""></a>
                                                        <a class="tpproduct__thumb-img"
-                                                           href="shop-details-grid.html"><img
+                                                           href="{{ Route('pesan.show', $item->id) }}"><img
                                                                src="{{ asset('images/produk/' . $item->gambar) }}"
                                                                alt=""></a>
-                                                       
+
                                                    </div>
                                                    <div class="tpproduct__content">
                                                        <h4 class="tpproduct__title">
@@ -92,41 +92,11 @@
                                                            <span>Rp. {{ number_format($item->harga, 2, ',', '.') }}</span></span>
                                                        </div>
                                                    </div>
-                                                   <div class="tpproduct__hover-text">
-                                                       <div
-                                                           class="tpproduct__hover-btn d-flex justify-content-center mb-10">
-                                                           <a class="tp-btn-2" href="{{ Route('pesan.show',$item->id) }}">Pesan</a>
-                                                       </div>
-                                                       <div class="tpproduct__descrip">
-                                                           <p>{{ $item->deskripsi }}</p>
-                                                       </div>
-                                                   </div>
                                                </div>
                                            </div>
                                        @endforeach
                                    </div>
                                </div>
-                           </div>
-
-                           <div class="basic-pagination text-center mt-35">
-                               <nav>
-                                   <ul>
-                                       <li>
-                                           <span class="current">1</span>
-                                       </li>
-                                       <li>
-                                           <a href="blog.html">2</a>
-                                       </li>
-                                       <li>
-                                           <a href="blog.html">3</a>
-                                       </li>
-                                       <li>
-                                           <a href="blog.html">
-                                               <i class="icon-chevrons-right"></i>
-                                           </a>
-                                       </li>
-                                   </ul>
-                               </nav>
                            </div>
                        </div>
                    </div>

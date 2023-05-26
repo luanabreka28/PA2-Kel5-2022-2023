@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pembelian_item', function (Blueprint $table) {
             $table->id();
+            // $table->string('order_number')->unique();
             $table->unsignedBigInteger('produk_id');
             $table->unsignedBigInteger('pembelian_id');
             $table->unsignedBigInteger('jumlah');

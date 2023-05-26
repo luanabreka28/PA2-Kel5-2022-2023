@@ -14,6 +14,7 @@ class Pesanan extends Model
         'id',
         'user_id',
         'product_id',
+        'order_number',
         'total',
     ];
 }

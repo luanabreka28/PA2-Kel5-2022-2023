@@ -8,12 +8,12 @@
                     <form class="theme-form login-form needs-validation" method="POST" action="{{ url('do_login') }}">
                         @csrf
                         <h4>Login</h4>
-                        <h6>Welcome back! Log in to your account.</h6>
+                        <h6>Silahkan masuk dengan akun anda</h6>
                         <div class="form-group">
-                            <label>Email Address</label>
+                            <label>Email </label>
                             <div class="input-group"><span class="input-group-text"><i class="icon-email"></i></span>
                                 <input class="form-control @error('email')is-invalid @enderror" type="email"
-                                    name="email" placeholder="Test@gmail.com" autofocus>
+                                    name="email" placeholder="Masukkan email anda" autofocus>
                                 @error('email')
                                     <div class="invalid-tooltip">{{ $message }}</div>
                                 @enderror
@@ -31,10 +31,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+                            <button class="btn btn-primary btn-block" type="submit">Masuk</button>
                         </div>
-                        
-                        <p>Don't have account?<a class="ms-2" href="{{ route('register') }}">Create Account</a></p>
+
+                        <p>Belum memiliki akun?<a class="ms-2" href="{{ route('register') }}">Buat Akun</a></p>
                     </form>
                 </div>
             </div>

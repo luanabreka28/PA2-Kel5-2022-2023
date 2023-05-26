@@ -13,7 +13,8 @@ use App\Http\Controllers\User\PembayaranController;
 use App\Http\Controllers\User\PembelianController;
 use App\Http\Controllers\User\PesanController;
 use App\Http\Controllers\User\TestimoniController;
-use App\Models\Pembelian;
+use App\Http\Controllers\User\StatusController;
+
 
 Route::post('/do_register', [AuthController::class, 'do_register'])->middleware('guest');
 Route::post('/do_login', [AuthController::class, 'do_login'])->middleware('guest');
@@ -24,8 +25,6 @@ Route::get('/', function () {
     return redirect('home');
 });
 Route::get('/home', [IndexController::class, 'index'])->name('home')->middleware('auth');
-
-
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::get('/paketmakanan', [PaketMakananController::class, 'index'])->name('paketmakanan');
 Route::get('/paketmusik', [PaketMusikController::class, 'index'])->name('paketmusik');
@@ -45,6 +44,7 @@ Route::get('acara', function () {
 Route::get('about', function () {
     return view('web.about');
 });
+
 Route::get('detail', function () {
     return view('web.detail');
 });
@@ -58,6 +58,7 @@ Route::prefix('user')->group(function () {
         Route::resource('order', OrderController::class);
         Route::resource('pembayaran', PembayaranController::class);
         Route::resource('review', TestimoniController::class);
+        Route::get('status', [StatusController::class, 'showStatus'])->name('status');
         Route::get('testimoni', function () {
             return view('web.testimoni');
         });

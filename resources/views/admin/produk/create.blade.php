@@ -67,7 +67,7 @@
                                         <div class="mb-3">
                                             <label>Harga</label>
                                             <input class="form-control @error('harga') is-invalid @enderror"
-                                                type="text" placeholder="Harga" name="harga">
+                                                type="number" placeholder="Harga" name="harga">
                                             @error('harga')
                                                 <span class="alert-danger">
                                                     {{ $message }}

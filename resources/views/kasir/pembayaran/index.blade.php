@@ -63,10 +63,7 @@
                                                     <a
                                                         href="{{ route('kasir.download.gambar', ['id' => $pembelian->id]) }}"><i
                                                             class="icon-image mx-2"></i>{{ $pembelian->bukti_pembayaran }}
-                                                        {{-- <img class="img-fluid img-40"
-                                                            src="{{ asset('images/pembayaran/' . $pembelian->bukti_pembayaran) }}"
-                                                            alt="#"> --}}
-                                                        {{-- <i class="fas fa-download"></i> --}}
+                                                        
                                                     </a>
                                                 </td>
                                                 <td>

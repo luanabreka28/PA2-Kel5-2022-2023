@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Galeri;
 use App\Models\Pesanan;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -31,10 +32,21 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'total' => 'required',
+
         ]);
+        // $rand_num = random_int(100000, 999999);
+        $char = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $length = 8;
+        $rand_string = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $rand_string .= $char[rand(0, strlen($char) - 1)];
+        };
+
+        $random = $rand_string;
+
         $previousUrl = url()->previous();
         $id_trim = Str::of($previousUrl)->afterLast('/')->__toString();
         $cek = Pesanan::where('user_id', auth()->user()->id)->where('product_id', $id_trim)->first();
@@ -47,6 +59,7 @@ class OrderController extends Controller
                 'user_id' => auth()->user()->id,
                 'product_id' => $id_trim,
                 'total' => $request->total,
+                'order_number' => $random,
             ]);
         }
         return response()->json([
@@ -55,34 +68,11 @@ class OrderController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Galeri $galeri)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Galeri $galeri)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Galeri $galeri)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Galeri $galeri)
+    public function destroy(Produk $pesan)
     {
         //
     }

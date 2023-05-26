@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('username');
             $table->string('alamat');
+            $table->string('order_number')->unique();
             $table->double('total_harga');
             $table->dateTIme('tanggal_pembelian');
             $table->string('no_telpon');
