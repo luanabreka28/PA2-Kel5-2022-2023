@@ -6,8 +6,8 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="tpbanner__item mb-30">
-                            <a href="shop-3.html">
-                                <div class="tpbanner__content" data-background="assets/img/banner/oke1.jpg">
+                            <a href="#">
+                                <div class="tpbanner__content" data-background="{{ asset('assets/img/banner/oke1.jpg') }}">
                                     <span class="tpbanner__sub-title mb-10">Top Music</span>
                                     <h4 class="tpbanner__title mb-30">Kualitas Suara <br> Yang Terbaik dan Bagus</h4>
                                 </div>
@@ -16,8 +16,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="tpbanner__item mb-30">
-                            <a href="shop-3.html">
-                                <div class="tpbanner__content" data-background="assets/img/banner/oke2.jpg">
+                            <a href="#">
+                                <div class="tpbanner__content" data-background="{{ asset('assets/img/banner/oke2.jpg') }}">
                                     <span class="tpbanner__sub-title tpbanner__white mb-10">Kualiats Lighting</span>
                                     <h4 class="tpbanner__title mb-30">Lampu Sorot <br> Yang Mewah</h4>
                                 </div>
@@ -26,8 +26,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="tpbanner__item mb-30">
-                            <a href="shop-3.html">
-                                <div class="tpbanner__content" data-background="assets/img/banner/oke3.jpg">
+                            <a href="#">
+                                <div class="tpbanner__content" data-background="{{ asset('assets/img/banner/oke3.jpg') }}">
                                     <span class="tpbanner__sub-title mb-10">Top Seller</span>
                                     <h4 class="tpbanner__title mb-30">Suara Mic <br> Yang Jernih</h4>
                                 </div>

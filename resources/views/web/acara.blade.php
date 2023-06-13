@@ -6,8 +6,8 @@
                <div class="row">
                    <div class="col-lg-4 col-md-6">
                        <div class="tpbanner__item mb-30">
-                           <a href="shop-3.html">
-                               <div class="tpbanner__content" data-background="assets/img/banner/dekor1.png">
+                           <a href="#">
+                               <div class="tpbanner__content" data-background="{{ asset('assets/img/banner/dekor1.png') }}">
                                    <span class="tpbanner__sub-title mb-10">Top Acara</span>
                                    <h4 class="tpbanner__title mb-30">Memiliki Banyak Pilihan <br> Yang Terbaik dan Bagus</h4>
                                </div>
@@ -16,7 +16,7 @@
                    </div>
                    <div class="col-lg-4 col-md-6">
                        <div class="tpbanner__item mb-30">
-                           <a href="shop-3.html">
+                           <a href="#">
                                <div class="tpbanner__content" data-background="assets/img/banner/dekor2.png">
                                    <span class="tpbanner__sub-title tpbanner__white mb-10">Kualiats Acara</span>
                                    <h4 class="tpbanner__title mb-30">Kualitas Paket Acara <br> Yang Mewah</h4>
@@ -26,8 +26,8 @@
                    </div>
                    <div class="col-lg-4 col-md-6">
                        <div class="tpbanner__item mb-30">
-                           <a href="shop-3.html">
-                               <div class="tpbanner__content" data-background="assets/img/banner/dekor3.png">
+                           <a href="#">
+                               <div class="tpbanner__content" data-background="{{ asset('assets/img/banner/dekor3.png') }}">
                                    <span class="tpbanner__sub-title mb-10">Top Seller</span>
                                    <h4 class="tpbanner__title mb-30">Memiliki Banyak <br> Pilihan Paket</h4>
                                </div>

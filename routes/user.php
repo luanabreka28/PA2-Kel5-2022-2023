@@ -27,7 +27,7 @@ Route::get('/', function () {
 Route::get('/home', [IndexController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::get('/paketmakanan', [PaketMakananController::class, 'index'])->name('paketmakanan');
-Route::get('/paketmusik', [PaketMusikController::class, 'index'])->name('paketmusik');
+Route::get('/paketmusik', [PaketMusikController::class, 'index'])->name('paketmusik')->middleware('auth');
 Route::get('/paketdekorasi', [PaketDekorasiController::class, 'index'])->name('paketdekorasi');
 Route::get('/paketacara', [PaketAcaraController::class, 'index'])->name('paketacara');
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');

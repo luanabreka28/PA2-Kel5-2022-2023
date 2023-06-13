@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Galeri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GaleriController extends Controller
 {
@@ -30,26 +31,21 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'judul' => 'required',
             'tempat' => 'required',
             'tanggal' => 'required',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
+            'user_id' => ''
         ]);
-
+        $validatedData['user_id'] = Auth::user()->id;
         // set gambar dan simpan gambar di folder public/images/galeri
-        $file = $request->file('gambar');
+        $file = $validatedData['gambar'];
         $gambar = $file->getClientOriginalName();
         $file->move(public_path('images/galeri'), $gambar);
 
-        Galeri::create([
-            'judul' => $request->judul,
-            'tempat' => $request->tempat,
-            'tanggal' => $request->tanggal,
-            'deskripsi' => $request->deskripsi,
-            'gambar' => $gambar
-        ]);
+        Galeri::create($validatedData);
 
         return redirect()->route('admin.galeri.index')->with('success', 'Data Berhasil Ditambahkan');
     }

@@ -2,7 +2,7 @@
    <main>
 
       <!-- about-area-start -->
-      <section class="about-area tpabout__inner-bg pt-175 pb-170 mb-50" data-background="assets/img/banner/about-bg-1.png">
+      <section class="about-area tpabout__inner-bg pt-175 pb-170 mb-50" data-background="{{ asset('assets/img/banner/about-bg-1.png') }}">
          <div class="container">
             <div class="row">
                <div class="col-lg-12">
@@ -24,13 +24,13 @@
             <div class="row align-items-center">
                <div class="col-lg-6">
                   <div class="tpabout__inner-thumb-2 p-relative mb-30">
-                     <img src="assets/img/banner/about-inner-bg.png" alt="">
+                     <img src="{{ asset('assets/img/banner/about-inner-bg.png') }}" alt="">
                      <div class="tpabout__inner-thumb-shape d-none d-md-block">
                         <div class="tpabout__inner-thumb-shape-one">
-                           <img src="assets/img/shape/tree-leaf-6.png" alt="">
+                           <img src="{{ asset('assets/img/shape/tree-leaf-6.png') }}" alt="">
                         </div>
                         <div class="tpabout__inner-thumb-shape-two">
-                           <img src="assets/img/shape/tree-leaf-7.png" alt="">
+                           <img src="{{ asset('assets/img/shape/tree-leaf-7.png') }}" alt="">
                         </div>
                      </div>
                   </div>
@@ -66,7 +66,7 @@
                   <div class="col-lg-4 col-md-4 col-sm-6">
                      <div class="tpabout__item text-center mb-40">
                         <div class="tpabout__icon mb-15">
-                           <img src="{{ url('assets/img/icon/o.png') }}" alt="">
+                           <img src="{{ asset('assets/img/icon/o.png') }}" alt="">
                         </div>
                         <div class="tpabout__content">
                            <h4 class="tpabout__title">Tanpa Berlangganan</h4>
@@ -77,7 +77,7 @@
                   <div class="col-lg-4 col-md-4 col-sm-6">
                      <div class="tpabout__item text-center mb-40">
                         <div class="tpabout__icon mb-15">
-                           <img src="{{ url('assets/img/icon/order.png') }}" alt="">
+                           <img src="{{ asset('assets/img/icon/order.png') }}" alt="">
                         </div>
                         <div class="tpabout__content">
                            <h4 class="tpabout__title">Bebas Memilih Menu </h4>
@@ -89,7 +89,7 @@
                   <div class="col-lg-4 col-md-4 col-sm-6">
                      <div class="tpabout__item text-center mb-40">
                         <div class="tpabout__icon mb-15">
-                           <img src="{{ url('assets/img/icon/time.png') }}" alt="">
+                           <img src="{{ asset('assets/img/icon/time.png') }}" alt="">
                         </div>
                         <div class="tpabout__content">
                            <h4 class="tpabout__title">Bebas Memilih Waktu </h4>
@@ -120,7 +120,7 @@
                <div class="col-lg-3 col-md-6 col-sm-6">
                   <div class="tpchoose__item text-center mb-30">
                      <div class="tpchoose__icon mb-20">
-                        <img src="assets/img/icon/choose-icon1.svg" alt="">
+                        <img src="{{ asset('assets/img/icon/choose-icon1.svg') }}" alt="">
                      </div>
                      <div class="tpchoose__content">
                         <h4 class="tpchoose__title">100% Lauk Pauk segar</h4>
@@ -131,7 +131,7 @@
                <div class="col-lg-3 col-md-6 col-sm-6">
                   <div class="tpchoose__item text-center mb-30">
                      <div class="tpchoose__icon mb-20">
-                        <img src="assets/img/icon/choose-icon2.svg" alt="">
+                        <img src="{{ asset('assets/img/icon/choose-icon2.svg') }}" alt="">
                      </div>
                      <div class="tpchoose__content">
                         <h4 class="tpchoose__title">Kualitas Premium</h4>
@@ -142,7 +142,7 @@
                <div class="col-lg-3 col-md-6 col-sm-6">
                   <div class="tpchoose__item text-center mb-30">
                      <div class="tpchoose__icon mb-20">
-                        <img src="assets/img/icon/choose-icon3.svg" alt="">
+                        <img src="{{ asset('assets/img/icon/choose-icon3.svg') }}" alt="">
                      </div>
                      <div class="tpchoose__content">
                         <h4 class="tpchoose__title">Kualitas Dekorasi</h4>
@@ -153,7 +153,7 @@
                <div class="col-lg-3 col-md-6 col-sm-6">
                   <div class="tpchoose__item text-center mb-30">
                      <div class="tpchoose__icon mb-20">
-                        <img src="assets/img/icon/choose-icon4.svg" alt="">
+                        <img src="{{ asset('assets/img/icon/choose-icon4.svg') }}" alt="">
                      </div>
                      <div class="tpchoose__content">
                         <h4 class="tpchoose__title">Musik Berkualitas</h4>
@@ -170,7 +170,6 @@
            <div class="row justify-content-center">
               <div class="col-lg-6">
                  <div class="tpcontact-inner text-center mt-20 mb-40">
-
                  </div>
               </div>
            </div>
@@ -178,7 +177,7 @@
             <div class="col-lg-6">
                 <div class="tpcontact mb-30">
                     <div class="tpcontact__img mb-10 w-img">
-                       <img src="assets/img/banner/contact-big-bg2.jpg" alt="" width="400" height="250">
+                       <img src="{{ asset('assets/img/banner/contact-big-bg2.jpg') }}" alt="" width="400" height="250">
                     </div>
                     <div class="tplocation__text">
                        <h4 class="tplocation__text-title">SIPAHOLON - TARUTUNG</h4>

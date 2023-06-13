@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('galeri', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('judul');
             $table->string('tempat');
             $table->date('tanggal');
             $table->text('deskripsi');
             $table->string('gambar');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

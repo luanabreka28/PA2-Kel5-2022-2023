@@ -6,8 +6,8 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="tpbanner__item mb-30">
-                            <a href="shop-3.html">
-                                <div class="tpbanner__content" data-background="assets/img/banner/banner-1.jpg">
+                            <a href="#">
+                                <div class="tpbanner__content" data-background="{{ asset('assets/img/banner/banner-1.jpg') }}">
                                     <span class="tpbanner__sub-title mb-10">Kualiats Makanan</span>
                                     <h4 class="tpbanner__title mb-30">Menggunakan Bahan <br> Makanan Yang Segar </h4>
                                 </div>
@@ -16,8 +16,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="tpbanner__item mb-30">
-                            <a href="shop-3.html">
-                                <div class="tpbanner__content" data-background="assets/img/banner/banner-2.jpg">
+                            <a href="#">
+                                <div class="tpbanner__content" data-background="{{ asset('assets/img/banner/banner-2.jpg') }}">
                                     <span class="tpbanner__sub-title tpbanner__white mb-10">TOP Makanan</span>
                                     <h4 class="tpbanner__title mb-30">Banyak Pilihan <br> Menu Yang Terbaik</h4>
                                 </div>
@@ -26,10 +26,11 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="tpbanner__item mb-30">
-                            <a href="shop-3.html">
-                                <div class="tpbanner__content" data-background="assets/img/banner/banner-3.jpg">
+                            <a href="#">
+                                <div class="tpbanner__content" data-background="{{ asset('assets/img/banner/banner-3.jpg') }}">
                                     <span class="tpbanner__sub-title mb-10">Top Seller</span>
-                                    <h4 class="tpbanner__title mb-30">Memiliki Banyak Menu <br> Yang Diminati Konsumen</h4>
+                                    <h4 class="tpbanner__title mb-30">Memiliki Banyak Menu <br> Yang Diminati Konsumen
+                                    </h4>
                                 </div>
                             </a>
                         </div>
@@ -69,7 +70,8 @@
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active whight-product" id="nav-popular" role="tabpanel"
                                     aria-labelledby="nav-popular-tab">
-                                    <div class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct__shop-item">
+                                    <div
+                                        class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct__shop-item">
                                         @foreach ($paket_makanan as $item)
                                             <div class="col">
                                                 <div class="tpproduct p-relative mb-20">
@@ -88,7 +90,8 @@
                                                             <a href="shop-details-top-.html">{{ $item->name }}</a>
                                                         </h4>
                                                         <div class="tpproduct__price">
-                                                            <span>Rp. {{ number_format($item->harga, 2, ',', '.') }}</span></span>
+                                                            <span>Rp.
+                                                                {{ number_format($item->harga, 2, ',', '.') }}</span></span>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -40,9 +40,7 @@
                     </div>
                     <div class="col-xl-3">
                         <div class="header__info d-flex align-items-center">
-                            <div class="header__info-search tpcolor__purple ml-10">
-                                <button class="tp-search-toggle"><i class="icon-search"></i></button>
-                            </div>
+                            
                             @guest
                                 <div class="header__info-user tpcolor__yellow ml-10">
                                     <a href="{{ url('login') }}"><i class="icon-user"></i></a>
@@ -77,27 +75,6 @@
         </div>
     </div>
 
-    <!-- header-search -->
-    <div class="tpsearchbar tp-sidebar-area">
-        <button class="tpsearchbar__close"><i class="icon-x"></i></button>
-        <div class="search-wrap text-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-6 pt-100 pb-100">
-                        <h2 class="tpsearchbar__title">What Are You Looking For?</h2>
-                        <div class="tpsearchbar__form">
-                            <form action="#">
-                                <input type="text" name="search" placeholder="Search Product...">
-                                <button class="tpsearchbar__search-btn"><i class="icon-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="search-body-overlay"></div>
-    <!-- header-search-end -->
 
     <!-- header-cart-start -->
     <div class="tpcartinfo tp-cart-info-area p-relative">

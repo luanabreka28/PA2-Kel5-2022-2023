@@ -21,11 +21,11 @@
                                     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-5">
                                         <div class="tpslider__thumb p-relative">
                                             <img class="tpslider__thumb-img tpslider__three"
-                                                src="assets/img/slider/slider-bg-6.png" alt="slider-bg">
+                                                src="{{ asset('assets/img/slider/slider-bg-6.png') }}" alt="slider-bg">
                                             <div class="tpslider__shape d-none d-lg-block">
                                                 <img class="tpslider__shape-three three-shap-one"
-                                                    src="assets/img/slider/slider-shape-5.png" alt="shape">
-                                                <img class=" three-shap-two" src="assets/img/slider/slider-shape-6.png"
+                                                    src="{{ asset('assets/img/slider/slider-shape-5.png') }}" alt="shape">
+                                                <img class=" three-shap-two" src="{{ asset('assets/img/slider/slider-shape-6.png') }}"
                                                     alt="shape">
                                             </div>
                                         </div>
@@ -47,7 +47,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="tpabout__item text-center mb-40">
                                 <div class="tpabout__icon mb-15">
-                                    <img src="{{ url('assets/img/icon/o.png') }}" alt="">
+                                    <img src="{{ asset('assets/img/icon/o.png') }}" alt="">
                                 </div>
                                 <div class="tpabout__content">
                                     <h4 class="tpabout__title">Tanpa Berlangganan</h4>
@@ -58,7 +58,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="tpabout__item text-center mb-40">
                                 <div class="tpabout__icon mb-15">
-                                    <img src="{{ url('assets/img/icon/order.png') }}" alt="">
+                                    <img src="{{ asset('assets/img/icon/order.png') }}" alt="">
                                 </div>
                                 <div class="tpabout__content">
                                     <h4 class="tpabout__title">Bebas Memilih Menu </h4>
@@ -70,7 +70,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="tpabout__item text-center mb-40">
                                 <div class="tpabout__icon mb-15">
-                                    <img src="{{ url('assets/img/icon/time.png') }}" alt="">
+                                    <img src="{{ asset('assets/img/icon/time.png') }}" alt="">
                                 </div>
                                 <div class="tpabout__content">
                                     <h4 class="tpabout__title">Bebas Memilih Waktu </h4>
@@ -131,7 +131,7 @@
             <div class="swiper-container slider-active">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide ">
-                        <div class="tpslider pt-50 pb-0 grey-bg" data-background="assets/img/slider/shape-bg.jpg">
+                        <div class="tpslider pt-50 pb-0 grey-bg" data-background="{{ asset('assets/img/slider/shape-bg.jpg') }}">
                             <div class="container">
                                 <div class="row align-items-center">
                                     <div class="col-xxl-5 col-lg-6 col-md-6 col-12 col-sm-6">
@@ -144,11 +144,11 @@
                                     </div>
                                     <div class="col-xxl-7 col-lg-6 col-md-6 col-12 col-sm-6">
                                         <div class="tpslider__thumb p-relative pt-15">
-                                            <img class="tpslider__thumb-img" src="assets/img/slider/kemasan.png"
+                                            <img class="tpslider__thumb-img" src="{{ asset('assets/img/slider/kemasan.png') }}"
                                                 alt="slider-bg">
                                             <div class="tpslider__shape d-none d-md-block">
                                                 <img class="tpslider__shape-one"
-                                                    src="assets/img/slider/slider-shape-1.png" alt="shape">
+                                                    src="{{ asset('assets/img/slider/slider-shape-1.png') }}" alt="shape">
                                             </div>
                                         </div>
                                     </div>
@@ -171,7 +171,7 @@
                             <div class="tpbanner__thumb">
                                 <a href="shop-3.html">
                                     <div class="tpbanner__big-text tpbanner__big-bg"
-                                        data-background="assets/img/banner/banner-12.jpg">
+                                        data-background="{{ asset('assets/img/banner/banner-12.jpg') }}">
                                         <div class="tpbanner__big-bg-content">
                                             <h4 class="tpbanner__title mb-15">Paket <br> Catering</h4>
                                             <p>Makanan rumahan, hemat, enak, bersih.</p>
@@ -191,7 +191,7 @@
                                 <div class="tpbanner__thumb mb-20">
                                     <a href="{{ url('/paketdekorasi') }}">
                                         <div class="tpbanner__text tpbanner__bg3"
-                                            data-background="assets/img/banner/banner-11.jpg">
+                                            data-background="{{ asset('assets/img/banner/banner-11.jpg') }}">
                                             <div class="tpbanner__bg__second-content">
                                                 <h4 class="tpbanner__title mb-15">Paket <br> Dekorasi</h4>
                                                 <p>Menyediakan dekorasi untuk berbagai acara</p>
@@ -206,7 +206,7 @@
                                 <div class="tpbanner__thumb mb-20">
                                     <a href="{{ url('/paketmusik') }}">
                                         <div class="tpbanner__text tpbanner__bg4"
-                                            data-background="assets/img/banner/banner-10.jpg">
+                                            data-background="{{ asset('assets/img/banner/banner-10.jpg') }}">
                                             <h4 class="tpbanner__title mb-20">Paket <br> Musik Dan Band</h4>
                                             <p>Menyediakan sewa jasa musik dan band</p>
                                         </div>
@@ -217,7 +217,7 @@
                                 <div class="tpbanner__thumb mb-20">
                                     <a href="{{ url('/paketacara') }}">
                                         <div class="tpbanner__text tpbanner__bg4"
-                                            data-background="assets/img/banner/banner-13.jpg">
+                                            data-background="{{ asset('assets/img/banner/banner-13.jpg') }}">
                                             <h4 class="tpbanner__title mb-20">Paket <br> Acara</h4>
                                             <p>Menyediakan paket berbagai acara</p>
                                         </div>

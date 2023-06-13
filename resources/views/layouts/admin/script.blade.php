@@ -42,4 +42,5 @@
 <script src="assets/admin/assets/js/product-list-custom.js"></script>
 <script src="assets/admin//assets/js/dropzone/dropzone.js"></script>
 <script src="assets/admin//assets/js/dropzone/dropzone-script.js"></script>
+
 @yield('script')

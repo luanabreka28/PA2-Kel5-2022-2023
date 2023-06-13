@@ -35,7 +35,7 @@ class ProdukController extends Controller
             'name' => 'required',
             'harga' => 'required|numeric',
             'jenis' => 'required',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
         ]);
 
         // set gambar dan simpan gambar di folder public/images/galeri

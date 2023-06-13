@@ -139,8 +139,7 @@
                                             </div>
                                             <div class="media-body">
                                                 <h6>Total Pesanan Yang Masuk</h6>
-                                                <h5>{{ $total_semua }}<span
-                                                        class="font-roboto font-success f-w-700"><i
+                                                <h5>{{ $total_semua }}<span class="font-roboto font-success f-w-700"><i
                                                             class="icofont icofont-arrow-up"></i></span></h5>
                                                 <div class="icon-bg">
                                                     <svg width="110" height="105" viewBox="0 0 110 105"
@@ -167,10 +166,53 @@
                                 </div>
                             </div>
                         </div>
+                        <canvas id="myChart" class="min-h-auto w-100 ps-4 pe-6 mb-7"
+                            style="height: 400px"></canvas>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Container-fluid Ends-->
     </div>
+
+    @section('custom_js')
+        <script>
+            // Mengakses elemen canvas
+            var ctx = document.getElementById('myChart').getContext('2d');
+
+            // Menyiapkan data labels dan data jumlah pembelian
+            var labels = [];
+            var data = [];
+
+            // Mengisi data labels dan data jumlah pembelian dari $data_selesai
+            @foreach ($data_selesai as $tanggal => $jumlah)
+                labels.push("{{ $tanggal }}");
+                data.push({{ $jumlah }});
+            @endforeach
+
+            // Membuat objek chart baru
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Penjualan',
+                        data: data,
+                        backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                        borderColor: 'rgba(0, 123, 255, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    @endsection
+
 </x-app-layout>

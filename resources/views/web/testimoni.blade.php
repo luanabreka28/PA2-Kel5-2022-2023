@@ -30,7 +30,7 @@
     </style>
    <main>
       <!-- testimonial-area-start -->
-      <section class="testimonial-area tptestimonial__bg pt-80 p-relative" data-background="assets/img/testimonial/testimonial-bg-1.jpg">
+      <section class="testimonial-area tptestimonial__bg pt-80 p-relative" data-background="{{ asset('assets/img/testimonial/testimonial-bg-1.jpg') }}">
          <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
