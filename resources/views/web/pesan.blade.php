@@ -137,9 +137,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="tpsidebar__banner mb-30">
-                                <img src="{{ asset('assets/img/shape/sidebar-product-1.png') }}" alt="">
-                            </div>
 
                         </div>
                     </div>

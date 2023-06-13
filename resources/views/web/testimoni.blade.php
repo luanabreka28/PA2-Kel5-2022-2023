@@ -64,7 +64,7 @@
             <nav>
                <div class="nav nav-tabs"  role="tablist">
 
-                 <button class="nav-link" id="nav-review-tab" data-bs-toggle="tab" data-bs-target="#nav-review" type="button" role="tab" aria-controls="nav-review" aria-selected="false">Reviews</button>
+                 <button class="nav-link" id="nav-review-tab" data-bs-toggle="tab" data-bs-target="#nav-review" type="button" role="tab" aria-controls="nav-review" aria-selected="false">TAMBAH TESTIMONI</button>
                </div>
              </nav>
          </div>
