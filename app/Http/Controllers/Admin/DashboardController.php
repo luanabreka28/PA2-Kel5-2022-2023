@@ -29,7 +29,7 @@ class DashboardController extends Controller
                 return $pembelians->count();
             });
 
-        // dd($data_selesai);
+        // dd($data_selesai, $today, $startOfWeek, $endOfWeek);
 
         return view('admin.dashboard.index', compact('total_pending', 'total_selesai', 'total_diproses', 'total_semua', 'data_selesai'));
     }

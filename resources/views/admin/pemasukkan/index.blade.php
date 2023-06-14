@@ -32,18 +32,16 @@
                                 <table class="display" id="export-button">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Username</th>
                                             <th>Alamat</th>
                                             <th>Produk</th>
                                             <th>Total Harga</th>
-                                            <th>Created At</th>
+                                            <th>Tanggal Pesanan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($pembelians as $pembelian)
                                             <tr>
-                                                <td>{{ $pembelian->id }}</td>
                                                 <td>{{ $pembelian->username }}</td>
                                                 <td>{{ $pembelian->alamat }}</td>
                                                 <td>
@@ -52,7 +50,7 @@
                                                     @endforeach
                                                 </td>
                                                 <td> Rp. {{ number_format($pembelian->total_harga, 2, ',', '.') }}</td>
-                                                <td>{{ $pembelian->created_at }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($pembelian->tanggal_pembelian)->format('Y-m-d') }}</td>
                                             </tr>
                                         @endforeach
                                         @php

@@ -40,6 +40,7 @@ DROP TABLE IF EXISTS `galeri`;
 
 CREATE TABLE `galeri` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
   `judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal` date NOT NULL,
@@ -47,15 +48,20 @@ CREATE TABLE `galeri` (
   `gambar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `galeri_user_id_foreign` (`user_id`),
+  CONSTRAINT `galeri_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `galeri` */
 
-insert  into `galeri`(`id`,`judul`,`tempat`,`tanggal`,`deskripsi`,`gambar`,`created_at`,`updated_at`) values 
-(1,'Birthday Party Yang Meriah','Tarutung','2023-05-01','Pesta ini diadakan dengan meriah. Konsep pada pesta ulang tahun ini adalah bernuansa elegan','dekor1.png','2023-05-10 02:03:44','2023-05-10 02:03:44'),
-(2,'Prom Night','Sipaholon','2023-05-13','Acara ini di desain bernuansa elegan. Acara ini dihadiri oleh siswa sekolahan','dekor2.png','2023-05-10 02:06:11','2023-05-10 02:06:11'),
-(3,'Annivasary Party','Tarutung','2023-05-25','Pesta mewah ini diadakan oleh sepasang pengantin yang merayakan annivasary','cake-with-tinsel.jpg','2023-05-10 02:13:57','2023-05-10 02:34:17');
+insert  into `galeri`(`id`,`user_id`,`judul`,`tempat`,`tanggal`,`deskripsi`,`gambar`,`created_at`,`updated_at`) values 
+(1,1,'Acara pernikahan Bule asal Amerika dengan wanita pribumi','Tarutung','2023-05-28','Acara pernikahan ini adalah bukti nyata bahwa cinta tidak mengenal batas budaya atau ras. Melalui pernikahan ini, terjalinlah persatuan dua keluarga dan pertukaran nilai-nilai budaya yang berharga. Keberagaman dihargai dan dirayakan, sementara kesatuan dan cinta menjadi fokus utama acara ini.','1.jpg','2023-06-09 11:59:07','2023-06-09 12:28:43'),
+(2,1,'Acara ulang tahun dari anak bupati ini sangat meriah','Tarutung','2022-11-09','Acara ulang tahun anak bupati ini tidak hanya menjadi perayaan pribadi, tetapi juga menjadi perwujudan kebesaran dan kecintaan terhadap masyarakat. Pesta yang meriah ini memberikan kesempatan bagi anak bupati untuk merayakan ulang tahunnya dengan menginspirasi dan membawa kebahagiaan kepada banyak orang.','2.jpg','2023-06-09 12:03:15','2023-06-09 12:29:42'),
+(3,1,'Acara konser dari artis ibukota yaitu judika sangat meriah','Tarutung','2022-08-10','Kemeriahan konser ini tercermin dalam kegembiraan dan antusiasme yang dirasakan oleh para penggemar. Semangat mereka memenuhi arena, menciptakan atmosfer yang magis dan tak terlupakan. Acara konser ini menjadi bukti betapa Judika adalah seorang entertainer yang mampu membangkitkan semangat dan menghibur orang-orang dengan bakatnya yang luar biasa.','3.jpeg','2023-06-09 12:03:50','2023-06-09 12:30:23'),
+(4,1,'Acara GenderReveal dari keluarga Toluto ini sangat meriah dan viral','Tarutung','2023-06-07','Acara Gender Reveal yang diadakan oleh keluarga Toluto ini menjadi perbincangan hangat di berbagai platform media sosial. Acara tersebut tidak hanya meriah, tetapi juga berhasil memviralkan kebersamaan dan kegembiraan keluarga.','4.jpeg','2023-06-09 12:04:56','2023-06-09 12:31:46'),
+(5,1,'Acara Naik sidi anak dari bupati tarutung sangat mewah','Tarutung','2023-05-28','Pesta Naik Sidi ini dihiasi dengan dekorasi yang anggun dan mewah. Aula tempat acara berlangsung dihiasi dengan kain-kain indah, hiasan bunga, serta elemen dekoratif lainnya yang menggambarkan kekayaan dan status keluarga Bupati. Nuansa kemewahan terlihat dari perpaduan warna-warna yang elegan dan desain yang memikat.','6.jpg','2023-06-09 12:05:32','2023-06-09 12:34:11'),
+(6,1,'Acara pelantikan bupati baru Tapanuli Utara sangat ramai dan banyak pejabat','Tarutung','2023-03-16','Pelantikan ini adalah acara yang sangat ditunggu-tunggu oleh masyarakat Tapanuli Utara, karena bupati baru akan menjadi pemimpin mereka dalam mewujudkan perubahan dan kemajuan bagi daerah tersebut. Sebagai hasilnya, hadir banyak pejabat dari tingkat lokal, regional, bahkan mungkin juga nasional.','5.jpeg','2023-06-09 12:06:06','2023-06-09 12:33:03');
 
 /*Table structure for table `migrations` */
 
@@ -117,8 +123,7 @@ CREATE TABLE `model_has_roles` (
 insert  into `model_has_roles`(`role_id`,`model_type`,`model_id`) values 
 (1,'App\\Models\\User',1),
 (2,'App\\Models\\User',2),
-(3,'App\\Models\\User',3),
-(3,'App\\Models\\User',4);
+(3,'App\\Models\\User',3);
 
 /*Table structure for table `password_reset_tokens` */
 
@@ -133,24 +138,6 @@ CREATE TABLE `password_reset_tokens` (
 
 /*Data for the table `password_reset_tokens` */
 
-/*Table structure for table `pembayaran` */
-
-DROP TABLE IF EXISTS `pembayaran`;
-
-CREATE TABLE `pembayaran` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal` datetime NOT NULL,
-  `nohp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bukti_pembayaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-/*Data for the table `pembayaran` */
-
 /*Table structure for table `pembelian` */
 
 DROP TABLE IF EXISTS `pembelian`;
@@ -160,6 +147,7 @@ CREATE TABLE `pembelian` (
   `user_id` bigint(20) unsigned NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `total_harga` double NOT NULL,
   `tanggal_pembelian` datetime NOT NULL,
   `no_telpon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -168,23 +156,18 @@ CREATE TABLE `pembelian` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `pembelian_order_number_unique` (`order_number`),
   KEY `pembelian_user_id_foreign` (`user_id`),
   CONSTRAINT `pembelian_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `pembelian` */
 
-insert  into `pembelian`(`id`,`user_id`,`username`,`alamat`,`total_harga`,`tanggal_pembelian`,`no_telpon`,`bukti_pembayaran`,`status`,`created_at`,`updated_at`) values 
-(1,3,'Luana','Naga Timbul',25000,'2023-06-10 00:00:00','0834568900','1683683975.jpg','Selesai','2023-05-10 01:59:06','2023-05-10 08:04:05'),
-(2,3,'Luana Breka','Naga Timbul',3000000,'2023-06-01 00:00:00','0834568900','1683688338.jpg','Selesai','2023-05-10 03:11:42','2023-05-10 03:13:15'),
-(3,3,'Suga','Hinalang',25000,'2023-05-26 00:00:00','082276021161','1683705730.jpg','Pending','2023-05-10 08:01:00','2023-05-10 08:01:00'),
-(4,3,'Lulu','Naga Timbul',25000,'2023-06-01 00:00:00','0834568900','1683705761.jpg','Pending','2023-05-10 08:02:04','2023-05-10 08:02:04'),
-(5,3,'Mesya','Naga Timbul',4925000,'2023-05-25 00:00:00','0834568900','1683707046.jpg','Pending','2023-05-10 08:23:27','2023-05-10 08:23:27'),
-(6,3,'mlm;mm','ml;kl;kl;',125000,'1212-02-12 00:00:00','21212121','1683793642.jpg','Pending','2023-05-11 08:26:05','2023-05-11 08:26:05'),
-(7,3,'lalla','Naga Timbul',25000,'2023-05-27 00:00:00','0834568900','1683793683.jpg','Pending','2023-05-11 08:27:43','2023-05-11 08:27:43'),
-(8,3,'2121','2123121',75000,'1111-11-11 00:00:00','1111','1683794611.jpg','Pending','2023-05-11 08:42:04','2023-05-11 08:42:04'),
-(9,3,'21212','131213',75000,'1111-11-21 00:00:00','212121','1683794826.jpg','Pending','2023-05-11 08:46:37','2023-05-11 08:46:37'),
-(10,4,'mesya angeliqa','dragon muncul',2000000,'2023-05-24 00:00:00','0834568900','1683795617.jpg','Pending','2023-05-11 08:59:08','2023-05-11 08:59:08');
+insert  into `pembelian`(`id`,`user_id`,`username`,`alamat`,`order_number`,`total_harga`,`tanggal_pembelian`,`no_telpon`,`bukti_pembayaran`,`status`,`created_at`,`updated_at`) values 
+(37,3,'Putra Hutagalung','Gedung Serba Guna GKPI Pearaja','KA2094JL',6000000,'2023-06-16 00:00:00','082167157367','1686536570.jpg','Selesai','2023-06-12 02:22:29','2023-06-12 02:28:18'),
+(38,3,'Frans Hutagalung','Jalan Tarutung-Sipaholon','715LRIVB',8000000,'2023-06-14 00:00:00','082263524317','1686536610.jpg','Selesai','2023-06-12 02:23:18','2023-06-12 02:28:27'),
+(39,3,'Ray Siagian','Lapangan Hijau Tangsi','J1NG5I8E',1500000,'2023-06-16 00:00:00','082167157367','1686536671.jpg','Selesai','2023-06-12 02:24:21','2023-06-13 02:28:54'),
+(40,3,'Suryanto Panjaitan','Gang Siamaung-maung Dolok, Gang Hutabagot','1M7TP740',5000000,'2023-06-16 00:00:00','082167157367','1686623243.jpg','Selesai','2023-06-13 02:26:49','2023-06-13 02:29:01');
 
 /*Table structure for table `pembelian_item` */
 
@@ -202,23 +185,15 @@ CREATE TABLE `pembelian_item` (
   KEY `pembelian_item_pembelian_id_foreign` (`pembelian_id`),
   CONSTRAINT `pembelian_item_pembelian_id_foreign` FOREIGN KEY (`pembelian_id`) REFERENCES `pembelian` (`id`) ON DELETE CASCADE,
   CONSTRAINT `pembelian_item_produk_id_foreign` FOREIGN KEY (`produk_id`) REFERENCES `produk` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `pembelian_item` */
 
 insert  into `pembelian_item`(`id`,`produk_id`,`pembelian_id`,`jumlah`,`created_at`,`updated_at`) values 
-(1,2,1,1,'2023-05-10 01:59:06','2023-05-10 01:59:06'),
-(2,18,2,1,'2023-05-10 03:11:42','2023-05-10 03:11:42'),
-(3,2,3,1,'2023-05-10 08:01:00','2023-05-10 08:01:00'),
-(4,2,4,1,'2023-05-10 08:02:04','2023-05-10 08:02:04'),
-(5,3,5,5,'2023-05-10 08:23:27','2023-05-10 08:23:27'),
-(6,8,5,2,'2023-05-10 08:23:27','2023-05-10 08:23:27'),
-(7,13,5,1,'2023-05-10 08:23:27','2023-05-10 08:23:27'),
-(8,2,6,5,'2023-05-11 08:26:05','2023-05-11 08:26:05'),
-(9,2,7,1,'2023-05-11 08:27:43','2023-05-11 08:27:43'),
-(10,1,8,3,'2023-05-11 08:42:04','2023-05-11 08:42:04'),
-(11,1,9,3,'2023-05-11 08:46:37','2023-05-11 08:46:37'),
-(12,8,10,1,'2023-05-11 08:59:08','2023-05-11 08:59:08');
+(39,30,37,1,'2023-06-12 02:22:29','2023-06-12 02:22:29'),
+(40,27,38,1,'2023-06-12 02:23:18','2023-06-12 02:23:18'),
+(41,23,39,50,'2023-06-12 02:24:21','2023-06-12 02:24:21'),
+(42,26,40,1,'2023-06-13 02:26:49','2023-06-13 02:26:49');
 
 /*Table structure for table `permissions` */
 
@@ -267,14 +242,16 @@ CREATE TABLE `pesanan` (
   `user_id` bigint(20) unsigned NOT NULL,
   `product_id` bigint(20) unsigned NOT NULL,
   `total` double NOT NULL,
+  `order_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `pesanan_order_number_unique` (`order_number`),
   KEY `pesanan_user_id_foreign` (`user_id`),
   KEY `pesanan_product_id_foreign` (`product_id`),
   CONSTRAINT `pesanan_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `produk` (`id`) ON DELETE CASCADE,
   CONSTRAINT `pesanan_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `pesanan` */
 
@@ -292,31 +269,28 @@ CREATE TABLE `produk` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `produk` */
 
 insert  into `produk`(`id`,`name`,`jenis`,`gambar`,`harga`,`deskripsi`,`created_at`,`updated_at`) values 
-(1,'Nasi Ayam Goreng','Paket Makanan','ayam goreng.jpg',25000,'Lauk terdiri dari nasi, sambal, sayur dan ayam',NULL,NULL),
-(2,'Paket Ayam Gulai','Paket Makanan','Ayam gulai.jpg',25000,'Lauk terdiri dari nasi, sayur, ayam, nasi',NULL,NULL),
-(3,'Paket Ayam Penyet','Paket Makanan','Ayam penyet.jpg',25000,'Lauk terdiri dari ayam, nasi, sayur',NULL,NULL),
-(4,'Paket Tongseng Ayam','Paket Makanan','Tongseng ayam.jpg',20000,'Lauk terdiri dari nasi, ayam, sayur, sambal',NULL,NULL),
-(5,'Paket Tuna Asam Manis','Paket Makanan','Tuna asam manis.jpg',30000,'Lauk terdiri dari nasi, sambal, sayur, ikan',NULL,NULL),
-(6,'SIMPLEBAY','Paket Musik','SIMPLEBAY.jpg',1000000,'Digunakan untuk talkshow, seminar, dan simple music performance.',NULL,NULL),
-(7,'SUPERBAY PACKAGE','Paket Musik','SUPERBAY.jpg',1500000,'Dinggunakan untuk acara-acara musik akustik, pertunjukan musik, dll',NULL,NULL),
-(8,'MEGABAY','Paket Musik','MEGABAY.jpg',2000000,'Digunakan untuk acara  Band Music Performance, Wedding, Gathering, dll',NULL,NULL),
-(9,'BROADCAST','Paket Musik','BROADCAST.jpg',500000,'Digunakan untuk mendukung kegiatan  live streaming, wedding, webinar, dll',NULL,NULL),
-(10,'LIGHT PACKAGE','Paket Musik','LIGHT.jpg',1000000,'Cocok untuk segala jenis event baik indoor maupun outdoor.',NULL,NULL),
-(11,'Dekorasi Pernikahan A','Paket Dekorasi','la2 (1).jpg',1500000,'Bernuansa floral yang dipenuhi dengan bungan putih',NULL,NULL),
-(12,'Dekorasi Pernikahan B','Paket Dekorasi','la3 (1).png',2000000,'Bernuansa camping yang cocok untuk di outdoor',NULL,NULL),
-(13,'Dekorasi Ulang Tahun A','Paket Dekorasi','la4 (1).jpg',800000,'Bernuansa ceria yang dipenuhi dengan warna soft',NULL,NULL),
-(14,'Dekorasi Lamaran A','Paket Dekorasi','la5 (1).jpeg',1200000,'Bernuansa floral dipenuhi dengan bungan putih',NULL,NULL),
-(15,'Dekorasi Ulang Tahun B','Paket Dekorasi','la6 (1).jpg',900000,'Bernuansa ceria dengan hiasan beruang',NULL,NULL),
-(16,'Paket Birthday Party A','Paket Acara','dek1 (2).png',2500000,'Paket terdiri dari dekorasi, snack yang dihidangkan dll',NULL,NULL),
-(17,'Paket Birthday Party B','Paket Acara','dekor3 (1).png',1000000,'Paket terdiri dari dekorasi, makan siang, dan snack',NULL,NULL),
-(18,'Paket Lamaran Full A','Paket Acara','la2 (1).jpg',3000000,'Paket terdiri dari dekorasi, kursi, makanan 500',NULL,NULL),
-(19,'Paket Lamaran Full B','Paket Acara','la5 (1).jpeg',2800000,'Paket terdiri dari dekorasi sederhana, makanan 300, dan minuman',NULL,NULL),
-(20,'Paket Konser A','Paket Acara','lu5.jpg',5000000,'Paket terdiri dari lighting, panggung, musik',NULL,NULL);
+(14,'Paket Simplebay','Paket Musik','SIMPLEBAY.jpg',2500000,'Paket ini digunakan untuk talkshow, seminar, dan simple music performance. Paket terdiri dari Speakers Klarheit BC15 (2unit), Mixing Console Behringer Xenyx 1202 FX (1unit), Cable Microphone Shure SM 58 (3Unit), Wireless Microphone',NULL,NULL),
+(15,'Paket Superbay','Paket Musik','SUPERBAY.jpg',4000000,'Paket Superbay sering dipesan oleh klien kami yang ingin menyelenggarakan acara-acara musik akustik, pertunjukan musik, pernikahan, ulang tahun, pesta, Gathering, acara kampus, dan acara pribadi lainnya. Paket terdiri dari Front Speakers Klarheit BC15 (2Unit), Mixing Console Yamaha MG20XU (1 Unit), Monitor Speaker Klarheit BC15 (2 Unit), Vocal Microphone Shure SM58 (5 Unit), Instrument MicShure SM57 (3Unit), Wireless Microphone Mipro ACT Wireless (2 unit), Direct Box Soundking Passive DI (4 Unit), Percussion (Standard Acoustic Cajon (1 unit)), Guitar Yamaha Acoustic Guitar (1 unit), Bass Standard Studio Bass (1 unit), Keyboard Standard Studio Keyboard (1 unit)',NULL,NULL),
+(16,'Paket Megabay','Paket Musik','MEGABAY.jpg',3500000,'Paket MegaBay sering dipesan oleh klien kami yang ingin menyelenggarakan acara  Band Music Performance, Wedding, Gathering, School & Campus Event, Gathering, acara kampus, dan acara pribadi lainnya. Paket terdiri dari Monitor Speaker Klarheit BC15 (4 Unit), Vocal Microphone Shure SM58 (5Unit), Instrument Mic Shure SM57(4unit) Shure/AKg Drumfs, Microphone Set(1unit), Wireless Microphone Mipro ACT Wireless (2unit), Direct Box Behringer Ultra DI/GI (6unit), Drum Set Pearl Forum/Tama Imperialstar(1set) Cymbal Set(1set), Guitar Amps Peavey Bandit 12\"(2unit), Guitar Studio Electric Guitar(2unit), Bass Amps Laney 15\" Bass Amp(1unit), Bass Studio Electric Bass(1unit), Keyboard Amps Roland KC 350(1unit), Keyboard Standard Studio Keyboard(1unit)',NULL,NULL),
+(17,'Paket Broadcast','Paket Musik','BROADCAST.jpg',3000000,'Paket ini dapat digunakan untuk mendukung kegiatan  live streaming  wedding, webinar, talkshow ataupun music performance. Paket terdiri dari PC/Laptop with OBS Software (1 unit), Video Capture Card (1 unit), Camera + Tripod (1 unit), Visual Cable&accesories (1 set), Greenscreen 3x4 meter',NULL,NULL),
+(18,'Paket Lighting','Paket Musik','LIGHT.jpg',2000000,'Paket Sewa Lighting digunakan oleh Anda yang ingin menambahkan suasana lebih meriah di acaramu, cocok untuk segala jenis event baik indoor maupun outdoor. Paket terdiri dari Basic Light Par LED (8 unit), Effect Smoke Machine (1 unit), Mixer Light Controller (2 unit)',NULL,NULL),
+(19,'Ayam Goreng','Paket Makanan','ayam goreng.jpg',25000,'Berisikan ayam, nasi putuh, sayur dan sambal',NULL,NULL),
+(20,'Ayam Penyet','Paket Makanan','Ayam penyet.jpg',25000,'Berisikan ayam, sayur, sambal, dan nasi putih',NULL,NULL),
+(21,'Ayam Gulai','Paket Makanan','Ayam gulai.jpg',25000,'Berisikan nasi putih, sayur, sambal, dan ayam',NULL,NULL),
+(22,'Tuna Asam Manis','Paket Makanan','Tuna asam manis.jpg',35000,'Berisikan nasi putih, tuna, sayur, dan sambal',NULL,NULL),
+(23,'Tongseng Ayam','Paket Makanan','Tongseng ayam.jpg',30000,'Berisikan nasi putih, tongseng ayam, sayur, dan sambal',NULL,NULL),
+(24,'Paket Acara PromNight','Paket Acara','gambar 1.jpg',15000000,'Paket berisikan kursi, meja bundar, seperangkat alat makan untuk 500 orang, hiasan untuk dekorasi bernuansa putih mewah dan hidangan untuk 500 otang',NULL,NULL),
+(25,'Paket Pernikahan A','Paket Acara','gambar 2.jpg',20000000,'Paket berisikan sound system full musik, dekorasi bernuansa mewah, hidangan untuk 500 orang',NULL,NULL),
+(26,'Paket Birthday Party','Paket Acara','gambar 4.jpg',5000000,'Paket berisikan dekorasi full ballon, hidangan untuk 250 orang disertai bingkisan',NULL,NULL),
+(27,'Paket Pernikahan B','Paket Acara','la2 (1).jpg',8000000,'Paket berisikan dekorasi untuk outdoor bernuansa putih, kursi sebanyak 500 buah, hidangan 500 porsi yang disertai dengan cemilan',NULL,NULL),
+(28,'Paket Lamaran A','Paket Acara','la5 (1).jpeg',10000000,'Paket berisikan dekorasi nuansa putih, kuris 500 buah, dan hidangan untuk 400 orang',NULL,NULL),
+(29,'Dekorasi Pernikahan A','Paket Dekorasi','la3 (1).png',10000000,'Paket berisikan dekorasi bernuansa camping',NULL,NULL),
+(30,'Dekorasi Lamaran A','Paket Dekorasi','la5 (1).jpeg',6000000,'Dekorasi bernuansa simple dan elegan',NULL,NULL);
 
 /*Table structure for table `role_has_permissions` */
 
@@ -350,9 +324,9 @@ CREATE TABLE `roles` (
 /*Data for the table `roles` */
 
 insert  into `roles`(`id`,`name`,`guard_name`,`created_at`,`updated_at`) values 
-(1,'admin','web','2023-05-10 01:02:15','2023-05-10 01:02:15'),
-(2,'kasir','web','2023-05-10 01:02:15','2023-05-10 01:02:15'),
-(3,'user','web','2023-05-10 01:02:15','2023-05-10 01:02:15');
+(1,'admin','web','2023-06-06 13:46:56','2023-06-06 13:46:56'),
+(2,'kasir','web','2023-06-06 13:46:56','2023-06-06 13:46:56'),
+(3,'user','web','2023-06-06 13:46:56','2023-06-06 13:46:56');
 
 /*Table structure for table `testimoni` */
 
@@ -367,13 +341,18 @@ CREATE TABLE `testimoni` (
   PRIMARY KEY (`id`),
   KEY `testimoni_user_id_foreign` (`user_id`),
   CONSTRAINT `testimoni_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `testimoni` */
 
 insert  into `testimoni`(`id`,`user_id`,`deskripsi`,`created_at`,`updated_at`) values 
-(1,3,'Luana cantik','2023-05-10 01:02:20','2023-05-10 01:02:20'),
-(2,3,'hai aku luna','2023-05-10 01:03:35','2023-05-10 01:03:35');
+(1,3,'Saya sangat puas dengan jasa ketering yang diberikan oleh perusahaan ini. Makanan yang disajikan sangat lezat dan beragam, serta penyajiannya sangat rapi dan teratur. Tamu-tamu saya sangat terkesan dengan kualitas makanan yang disajikan.','2023-06-09 12:35:55','2023-06-09 12:35:55'),
+(2,3,'Terima kasih kepada tim katering yang telah menyediakan hidangan yang luar biasa untuk acara kami. Tidak hanya rasa makanan yang istimewa, tetapi pelayanan mereka juga sangat profesional dan ramah. Kami pasti akan merekomendasikan jasa katering ini kepada teman-teman kami.','2023-06-09 12:36:11','2023-06-09 12:36:11'),
+(3,3,'Acara pernikahan kami menjadi sangat sempurna berkat jasa katering ini. Makanan yang disajikan sangat enak dan menarik, serta dihidangkan dengan presentasi yang indah. Tamu-tamu kami memberikan pujian atas kualitas makanan dan pelayanan yang diberikan. Terima kasih banyak!','2023-06-09 12:36:22','2023-06-09 12:36:22'),
+(4,3,'Saya sangat terkesan dengan jasa katering ini. Mereka tidak hanya menghadirkan hidangan yang lezat, tetapi juga memperhatikan detail kecil seperti kebersihan, penyajian, dan kenyamanan tamu. Saya benar-benar merasa tenang menyerahkan tugas katering pada mereka.','2023-06-09 12:36:33','2023-06-09 12:36:33'),
+(5,3,'Makanan yang disediakan oleh jasa katering ini benar-benar luar biasa. Rasanya begitu autentik dan bahan-bahan yang digunakan sangat segar. Mereka juga sangat responsif terhadap permintaan khusus kami dan memastikan bahwa semua tamu kami puas dengan hidangan yang disajikan.','2023-06-09 12:36:44','2023-06-09 12:36:44'),
+(6,3,'Saya ingin berterima kasih kepada tim katering yang telah memberikan pengalaman kuliner yang luar biasa pada acara kami. Makanan yang mereka sajikan benar-benar menggugah selera dan variasinya sangat beragam. Tidak ada yang bisa kami keluhkan tentang layanan mereka yang sangat profesional dan efisien.','2023-06-09 12:36:55','2023-06-09 12:36:55'),
+(7,3,'Makanan yang disediakan oleh jasa katering ini benar-benar luar biasa. Rasanya begitu autentik dan bahan-bahan yang digunakan sangat segar. Mereka juga sangat responsif terhadap permintaan khusus kami dan memastikan bahwa semua tamu kami puas dengan hidangan yang disajikan.','2023-06-13 07:43:02','2023-06-13 07:43:02');
 
 /*Table structure for table `users` */
 
@@ -393,15 +372,14 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   UNIQUE KEY `users_nohp_unique` (`nohp`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`name`,`email`,`nohp`,`email_verified_at`,`password`,`remember_token`,`created_at`,`updated_at`,`deleted_at`) values 
-(1,'Administrator','admin@gmail.com','12345678901234',NULL,'$2y$10$bejc7ITpOTwhU9qTg.zdd.EMfJdCjg0LIb3b/lVF1arGiV5Hbw/wC',NULL,'2023-05-10 01:02:15','2023-05-10 01:02:15',NULL),
-(2,'Kasir','kasir@gmail.com','12341234',NULL,'$2y$10$qMub3tY/EXPFCCNztCn5P.N7LC65Ky4oGYnQIWimG6F7U/wi3RDxK',NULL,'2023-05-10 01:02:16','2023-05-10 01:02:16',NULL),
-(3,'User','user@gmail.com','1234512345',NULL,'$2y$10$zBU7fzpB4DXjmznvzBIEQOli/dmzI83fWB/5OqWrHkgBSgkUUKnsG',NULL,'2023-05-10 01:02:16','2023-05-10 01:02:16',NULL),
-(4,'mesya angeliqa','mesyahutagalung300@gmail.com','082167157367',NULL,'$2y$10$vffZIOCsKfdWjj/pyE5VEuKBsQTs9DaeW95HN6sO2JU5mVVbe6rym',NULL,'2023-05-11 08:52:25','2023-05-11 08:52:25',NULL);
+(1,'Administrator','admin@gmail.com','12345678901234',NULL,'$2y$10$m.PtZl4sLGuDtBeJJwswbuJw5FSaenPOmIL9PY8ZOD6JxC1Bp.r/K',NULL,'2023-06-06 13:46:57','2023-06-06 13:46:57',NULL),
+(2,'Kasir','kasir@gmail.com','12341234',NULL,'$2y$10$sx4/yrzLEAavWr0iBCddLuHncWI5Pi3ZIniMA.V5j/179G/MAarC2',NULL,'2023-06-06 13:46:57','2023-06-06 13:46:57',NULL),
+(3,'User','user@gmail.com','1234512345',NULL,'$2y$10$U1JKM9RXAklRp71adrKb2ebBp.s3rdjwXZ9rJsE5KVN7GZuvidtgq',NULL,'2023-06-06 13:46:57','2023-06-06 13:46:57',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

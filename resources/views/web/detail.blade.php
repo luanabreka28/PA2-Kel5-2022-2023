@@ -153,14 +153,17 @@
                                                 <button class="accordion-button" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#bankOne"
                                                     aria-expanded="true" aria-controls="bankOne">
-                                                    Direct Bank Transfer
+                                                    Nomor Bank Transfer
                                                 </button>
                                             </h2>
                                             <div id="bankOne" class="accordion-collapse collapse show"
                                                 aria-labelledby="checkoutOne" data-bs-parent="#checkoutAccordion">
                                                 <div class="accordion-body">
-                                                    No Rek. 7100 6789 8965
+                                                    Bank Mandiri: No Rek. 1070 0187 4177 9 <br>
+                                                    Bank BNI: No Rek. 1208 0692 66 <br>
+                                                    Bank BRI: No Rek. 7798 0101 0920 533 <br>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>

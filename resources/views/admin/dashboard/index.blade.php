@@ -71,7 +71,7 @@
                                             </div>
                                             <div class="media-body">
                                                 <h6>Pesanan Yang Sedang Diproses</h6>
-                                                <h5>{{ $total_selesai }}<span class="font-roboto font-danger f-w-700">
+                                                <h5>{{ $total_diproses }}<span class="font-roboto font-danger f-w-700">
                                                         <i class="icofont icofont-arrow-down"></i></span></h5>
                                             </div>
                                         </div>
