@@ -72,7 +72,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <!-- Container-fluid Ends-->
     </div>
     @section('script')
